@@ -58,6 +58,7 @@
 .container-detail {
     height: 16vh;
     position: relative;
+    z-index: 1000;
 }
 
 .details {
@@ -99,7 +100,7 @@
         border-right: 0px;
     }
     .title-detail {
-        font-size: 0.7rem;
+        font-size: 0.6rem;
     }
     .subtitle-detail {
         font-size: 1.1rem;
