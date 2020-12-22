@@ -1,0 +1,107 @@
+@import "variables";
+// inicio mapa
+.map {
+    background-color: green;
+    height: 72vh;
+}
+
+// fin mapa
+.header {
+    background: url("src/assets/img/pattern-bg.png") no-repeat;
+    height: 31vh;
+}
+
+.container-title {
+    height: 8vh;
+}
+
+.title {
+    color: #ffffff;
+    font-weight: 500;
+}
+
+.container-input {
+    background-color: red;
+    height: 15vh;
+}
+
+.search {
+    width: 100%;
+    height: 50px;
+    border-radius: 15px 0 0 15px;
+    border: none;
+    font-size: 18px;
+    padding-left: 20px;
+    padding-right: 10px;
+}
+
+.button-search {
+    width: 50px;
+    height: 52px;
+    border: none;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background: url("src/assets/img/icon-arrow.svg") no-repeat;
+    background-color: black;
+    background-position: center;
+    color: transparent;
+}
+
+// fin de hader y buscado
+.row-detail {
+    background-color: #ffffff;
+    border-radius: 15px;
+    width: 100%;
+    height: 100%;
+}
+
+.container-detail {
+    height: 16vh;
+    position: relative;
+}
+
+.details {
+    height: 9vh;
+}
+
+.separator {
+    border-right: 1px solid $dark-gray;
+}
+
+.title-detail {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: $dark-gray;
+}
+
+.subtitle-detail {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: $very-dark-gray;
+}
+
+// fin del detalle
+@media (max-width: 576px) {
+    .search {
+        height: 60px;
+    }
+    .button-search {
+        width: 50px;
+        height: 61px;
+    }
+    .header {
+        height: 37vh;
+    }
+    .container-detail {
+        height: 40vh;
+    }
+    .separator {
+        border-right: 0px;
+    }
+    .title-detail {
+        font-size: 0.7rem;
+    }
+    .subtitle-detail {
+        font-size: 1.1rem;
+    }
+}
