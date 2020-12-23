@@ -15,10 +15,12 @@ export class HomeComponent implements OnInit {
   public seacrhText = new FormControl('', Validators.required);
   public lat: number;
   public lng: number;
+  private initial: boolean;
 
   constructor(private homeService: HomeService) {
     this.lat = 4.60971;
     this.lng = -74.08175;
+    this.initial = true;
   }
 
   ngOnInit(): void {
@@ -26,7 +28,7 @@ export class HomeComponent implements OnInit {
   }
 
   searchIP() {
-    if (this.seacrhText.invalid) {
+    if (this.seacrhText.invalid && !this.initial) {
       return;
     }
     const params = {
@@ -42,5 +44,7 @@ export class HomeComponent implements OnInit {
         this.lat = result.location.lat;
         this.lng = result.location.lng;
       });
+
+    this.initial = false;
   }
 }
