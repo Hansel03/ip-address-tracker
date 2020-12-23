@@ -12,7 +12,7 @@ import { GeoIP, MyIp } from './home.interfaces';
 })
 export class HomeComponent implements OnInit {
   public apiGeoIp: GeoIP;
-  public seacrhText = new FormControl(null, Validators.required);
+  public seacrhText = new FormControl('', Validators.required);
   public lat: number;
   public lng: number;
 
@@ -22,13 +22,17 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getMyIP();
+    this.searchIP();
   }
 
-  searchIP(ip?: string) {
+  searchIP() {
+    if (this.seacrhText.invalid) {
+      return;
+    }
     const params = {
       apiKey: environment.apiKey,
-      ipAddress: this.seacrhText.value || ip,
+      ipAddress: this.seacrhText.value,
+      domain: this.seacrhText.value,
     };
 
     this.homeService
@@ -38,13 +42,5 @@ export class HomeComponent implements OnInit {
         this.lat = result.location.lat;
         this.lng = result.location.lng;
       });
-  }
-
-  private getMyIP() {
-    this.homeService.get(environment.urls.myip).subscribe((result: MyIp) => {
-      if (result && result.ip) {
-        this.searchIP(result.ip);
-      }
-    });
   }
 }

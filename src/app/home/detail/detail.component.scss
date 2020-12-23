@@ -40,9 +40,15 @@
         border-right: 0px;
     }
     .title-detail {
-        font-size: 0.6rem;
+        font-size: 0.7rem;
     }
     .subtitle-detail {
         font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .subtitle-detail {
+        font-size: 1.3rem;
     }
 }

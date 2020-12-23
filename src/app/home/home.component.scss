@@ -32,6 +32,10 @@
     color: $very-dark-gray;
 }
 
+::placeholder {
+    color: $dark-gray;
+}
+
 .button-search {
     width: 50px;
     height: 51px;
@@ -44,6 +48,10 @@
     color: transparent;
 }
 
+.button-search-active {
+    background-color: $very-dark-gray;
+}
+
 @media (max-width: 576px) {
     .search {
         height: 60px;
@@ -53,7 +61,8 @@
         height: 61px;
     }
     .header {
-        height: 37vh;
+        background: url("src/assets/img/pattern-bg-mv.png") no-repeat;
+        height: 40vh;
     }
     .search-max {
         max-width: 81.333333%;
