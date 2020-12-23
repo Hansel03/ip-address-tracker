@@ -1,0 +1,48 @@
+@import "variables";
+.row-detail {
+    background-color: #ffffff;
+    border-radius: 15px;
+    width: 100%;
+    height: 100%;
+}
+
+.container-detail {
+    height: 16vh;
+    position: relative;
+    z-index: 1000;
+}
+
+.details {
+    height: 9vh;
+}
+
+.separator {
+    border-right: 1px solid $dark-gray;
+}
+
+.title-detail {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: $dark-gray;
+}
+
+.subtitle-detail {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: $very-dark-gray;
+}
+
+@media (max-width: 576px) {
+    .container-detail {
+        height: 40vh;
+    }
+    .separator {
+        border-right: 0px;
+    }
+    .title-detail {
+        font-size: 0.6rem;
+    }
+    .subtitle-detail {
+        font-size: 1.1rem;
+    }
+}

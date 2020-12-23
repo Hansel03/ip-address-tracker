@@ -8,12 +8,12 @@
 
     <div class="row container-input center-xs middle-xs">
         <div class="col-xs-10 col-sm-8 col-md-6 col-lg-4 not-padding">
-            <div class="row">
-                <div class="col-xs-10 not-padding">
-                    <input type="text" class="search" placeholder="Search for any IP address or domain">
+            <div class="row start-xs center-sm">
+                <div class="col-xs-10 col-sm-8 col-md-11 col-lg-11 not-padding search-max">
+                    <input type="text" [formControl]="seacrhText" class="search" placeholder="Search for any IP address or domain">
                 </div>
-                <div class="col-xs-2 not-padding not-flex">
-                    <button class="button-search" type="submit"></button>
+                <div class="col-xs-1 not-padding ">
+                    <button (click)="searchIP()" class="button-search" type="submit"></button>
                 </div>
             </div>
         </div>
@@ -21,60 +21,12 @@
 
     <!-- fin buscador  -->
 
-
-    <div class="row container-detail center-xs">
-        <div class="col-xs-10 col-sm-10 col-md-8 col-lg-8 row-detail">
-            <div class="row total-height center-xs start-sm middle-xs ">
-                <div class="col-xs-10 col-sm col-md col-lg">
-                    <div class="row separator details">
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                            <span class="title-detail">IP ADDRESS</span>
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                            <span class="subtitle-detail ">192.168.44.30</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-10 col-sm col-md col-lg">
-                    <div class="row separator details">
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                            <span class="title-detail">LOCATION</span>
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                            <span class="subtitle-detail ">Brooklyn, NY 10001</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-10 col-sm col-md col-lg">
-                    <div class="row separator details">
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                            <span class="title-detail">TIMEZONE</span>
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                            <span class="subtitle-detail ">UTC -05:00</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-10 col-sm col-md col-lg">
-                    <div class="row details">
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                            <span class="title-detail">ISP</span>
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                            <span class="subtitle-detail ">SpaceX Starlink</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- fin detalle -->
+    <app-detail [geoData]="apiGeoIp"></app-detail>
 
 </div>
 
 <!-- Fin header -->
 
 <div class="map">
-    <app-maps></app-maps>
+    <app-maps [geoData]="apiGeoIp"></app-maps>
 </div>

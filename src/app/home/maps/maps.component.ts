@@ -1,23 +1,47 @@
-import { Component, AfterViewInit } from '@angular/core';
+import {
+  Component,
+  AfterViewInit,
+  Input,
+  OnChanges,
+  SimpleChanges,
+} from '@angular/core';
 import * as L from 'leaflet';
+import { GeoIP } from '../home.interfaces';
 
 @Component({
   selector: 'app-maps',
   templateUrl: './maps.component.html',
   styleUrls: ['./maps.component.scss'],
 })
-export class MapsComponent implements AfterViewInit {
+export class MapsComponent implements AfterViewInit, OnChanges {
+  @Input() private geoData: GeoIP;
+  private latitude: number;
+  private longitud: number;
+
   private map;
-  constructor() {}
+  constructor() {
+    this.latitude = 4.60971;
+    this.longitud = -74.08175;
+  }
 
   ngAfterViewInit(): void {
     this.initMap();
   }
 
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes.geoData.currentValue) {
+      this.latitude = this.geoData.location.lat;
+      this.longitud = this.geoData.location.lng;
+
+      this.map.remove();
+      this.initMap();
+    }
+  }
+
   private initMap(): void {
     this.map = L.map('map', {
-      center: [10.8776673, -74.768817],
-      zoom: 17,
+      center: [this.latitude, this.longitud],
+      zoom: 15,
       zoomControl: false,
     });
 
@@ -38,7 +62,7 @@ export class MapsComponent implements AfterViewInit {
       iconUrl: 'assets/img/icon-location.svg',
     });
 
-    L.marker([10.8776673, -74.768817], {
+    L.marker([this.latitude, this.longitud], {
       icon: grayMarker,
     }).addTo(this.map);
   }

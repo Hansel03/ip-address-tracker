@@ -1,11 +1,8 @@
 @import "variables";
-// inicio mapa
 .map {
-    background-color: green;
     height: 72vh;
 }
 
-// fin mapa
 .header {
     background: url("src/assets/img/pattern-bg.png") no-repeat;
     height: 31vh;
@@ -21,7 +18,6 @@
 }
 
 .container-input {
-    background-color: red;
     height: 15vh;
 }
 
@@ -33,11 +29,12 @@
     font-size: 18px;
     padding-left: 20px;
     padding-right: 10px;
+    color: $very-dark-gray;
 }
 
 .button-search {
     width: 50px;
-    height: 52px;
+    height: 51px;
     border: none;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
@@ -47,62 +44,18 @@
     color: transparent;
 }
 
-// fin de hader y buscado
-.row-detail {
-    background-color: #ffffff;
-    border-radius: 15px;
-    width: 100%;
-    height: 100%;
-}
-
-.container-detail {
-    height: 16vh;
-    position: relative;
-    z-index: 1000;
-}
-
-.details {
-    height: 9vh;
-}
-
-.separator {
-    border-right: 1px solid $dark-gray;
-}
-
-.title-detail {
-    font-size: 0.8rem;
-    font-weight: 500;
-    color: $dark-gray;
-}
-
-.subtitle-detail {
-    font-size: 1.5rem;
-    font-weight: 500;
-    color: $very-dark-gray;
-}
-
-// fin del detalle
 @media (max-width: 576px) {
     .search {
         height: 60px;
     }
     .button-search {
-        width: 50px;
+        width: 60px;
         height: 61px;
     }
     .header {
         height: 37vh;
     }
-    .container-detail {
-        height: 40vh;
-    }
-    .separator {
-        border-right: 0px;
-    }
-    .title-detail {
-        font-size: 0.6rem;
-    }
-    .subtitle-detail {
-        font-size: 1.1rem;
+    .search-max {
+        max-width: 81.333333%;
     }
 }
